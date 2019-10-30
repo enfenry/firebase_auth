@@ -106,7 +106,7 @@ $('#signup-form').on('submit', function (event) {
         // close the signup modal & reset form
         const modal = $('#modal-signup');
         M.Modal.getInstance(modal).close();
-        $(this).reset();
+        $(this).trigger('reset');
     });
 });
 
@@ -131,7 +131,7 @@ $('#login-form').on('submit', function (event) {
 
         const modal = $('#modal-login');
         M.Modal.getInstance(modal).close();
-        $(this).reset();
+        $(this).trigger('reset');
     });
 
 });
