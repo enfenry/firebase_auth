@@ -1,21 +1,38 @@
 
 // setup materialize components
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     var modals = document.querySelectorAll('.modal');
     M.Modal.init(modals);
-  
+
     var items = document.querySelectorAll('.collapsible');
     M.Collapsible.init(items);
-  
-  });
+
+});
+
+// Initialize Firebase
+const config = {
+    apiKey: "AIzaSyCVM2gtdUnafOXKzC0yjPAtlOpJPNIifYc",
+    authDomain: "project-4b557.firebaseapp.com",
+    databaseURL: "https://project-4b557.firebaseio.com",
+    projectId: "project-4b557",
+    storageBucket: "project-4b557.appspot.com",
+    messagingSenderId: "1036442398494",
+    appId: "1:1036442398494:web:629e336007c53e78fe230f",
+    measurementId: "G-20C3PHLTWC"
+};
+firebase.initializeApp(config);
+
+// make auth and firestore references
+const auth = firebase.auth();
+var database = firebase.database();
 
 // DECLARE A VARIABLE TO STORE CURRENT USER'S ID
 var currentUID = "";
 
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
-    
+
     // WHEN USER IS LOGGED IN, WILL RETURN TRUE
     // ELSE user WILL EQUAL NULL, AND THE STATEMENT WILL RETURN FALSE
     if (user) {
@@ -30,22 +47,22 @@ auth.onAuthStateChanged(user => {
 
             let count = 0;
             snapshot.forEach(function (childSnapshot) {
-                
+
                 if (childSnapshot.val().uid === currentUID) {
                     count++;
-                    
+
                     let headingDiv = $("<div>");
-                    headingDiv.attr("class","collapsible-header grey lighten-4");
+                    headingDiv.attr("class", "collapsible-header grey lighten-4");
                     headingDiv.text("Secret #" + count);
 
                     let detailDiv = $("<div>");
-                    detailDiv.attr("class","collapsible-body white");
+                    detailDiv.attr("class", "collapsible-body white");
                     detailDiv.text(childSnapshot.val().secret);
 
                     let newItem = $("<li>");
                     newItem.append(headingDiv);
                     newItem.append(detailDiv);
-                    
+
                     $("#secret-list").prepend(newItem);
                 }
 

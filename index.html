@@ -57,7 +57,7 @@
                     <label for="login-email">Email address</label>
                 </div>
                 <div class="input-field">
-                    <input type="password" id="login-password"  autocomplete="current-password" required />
+                    <input type="password" id="login-password" autocomplete="current-password" required />
                     <label for="login-password">Your password</label>
                 </div>
                 <button class="btn yellow darken-2 z-depth-0">Login</button>
@@ -88,36 +88,19 @@
         </div>
     </div>
 
-        <!-- SECRETS LIST -->
-        <div class="container" style="margin-top: 40px;">
-            <ul class="collapsible z-depth-0 guides" style="border: none;" id="secret-list">
-            </ul>
-        </div>
+    <!-- SECRETS LIST -->
+    <div class="container" style="margin-top: 40px;">
+        <h3 class="logged-out">Login to View Your Secrets</h3>
+        <ul class="collapsible z-depth-0 guides" style="border: none;" id="secret-list">
+        </ul>
+    </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
-    <script>
-        // Initialize Firebase
-        const config = {
-            apiKey: "AIzaSyCVM2gtdUnafOXKzC0yjPAtlOpJPNIifYc",
-            authDomain: "project-4b557.firebaseapp.com",
-            databaseURL: "https://project-4b557.firebaseio.com",
-            projectId: "project-4b557",
-            storageBucket: "project-4b557.appspot.com",
-            messagingSenderId: "1036442398494",
-            appId: "1:1036442398494:web:629e336007c53e78fe230f",
-            measurementId: "G-20C3PHLTWC"
-        };
-        firebase.initializeApp(config);
-
-        // make auth and firestore references
-        const auth = firebase.auth();
-        var database = firebase.database();
-    </script>
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="scripts/auth.js"></script>
 </body>
