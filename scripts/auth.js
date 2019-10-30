@@ -41,7 +41,6 @@ $('#login-google').on('click', function (event) {
         // The signed-in user info.
         var user = result.user;
         // ...
-        console.log('token',token,'user',user)
 
       }).catch(function(error) {
         // Handle Errors here.
